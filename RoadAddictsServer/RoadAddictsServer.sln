@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadAddictsServer", "RoadAddictsServer.csproj", "{141D410E-170A-4DB9-BD14-19630BB98A23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadAddictsClient", "..\RoadAddictsClient\RoadAddictsClient.csproj", "{F889BD01-B571-4152-9196-91DDA045C879}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{141D410E-170A-4DB9-BD14-19630BB98A23}.Debug|x86.Build.0 = Debug|x86
 		{141D410E-170A-4DB9-BD14-19630BB98A23}.Release|x86.ActiveCfg = Release|x86
 		{141D410E-170A-4DB9-BD14-19630BB98A23}.Release|x86.Build.0 = Release|x86
+		{F889BD01-B571-4152-9196-91DDA045C879}.Debug|x86.ActiveCfg = Debug|x86
+		{F889BD01-B571-4152-9196-91DDA045C879}.Debug|x86.Build.0 = Debug|x86
+		{F889BD01-B571-4152-9196-91DDA045C879}.Release|x86.ActiveCfg = Release|x86
+		{F889BD01-B571-4152-9196-91DDA045C879}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

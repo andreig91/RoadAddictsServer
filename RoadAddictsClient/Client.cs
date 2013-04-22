@@ -6,9 +6,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
-namespace RoadAddictsServer
+namespace RoadAddictsClient
 {
-    class Server
+    class Client
     {
         // A lidgren variable holding an object that represents the local player in a game session. Used to perform all the major Lidgren tasks.
         private NetPeer session;
@@ -17,7 +17,7 @@ namespace RoadAddictsServer
         private bool pingSent = false;
         private Stopwatch watch = Stopwatch.StartNew();
 
-        public Server()
+        public Client()
         {
             NetPeerConfiguration config = new NetPeerConfiguration("RA");
             config.EnableMessageType(NetIncomingMessageType.DiscoveryResponse);
@@ -26,7 +26,7 @@ namespace RoadAddictsServer
             config.EnableMessageType(NetIncomingMessageType.StatusChanged);
             config.ConnectionTimeout = 300F;
             config.PingInterval = 10F;
-            config.Port = 50000;
+            config.Port = 50001;
             //config.EnableUPnP = true;
             session = new NetPeer(config);
             try
@@ -57,6 +57,7 @@ namespace RoadAddictsServer
 
         public void Start()
         {
+            session.Connect("localhost", 50000);
             //session.UPnP.ForwardPort(55500, "");
             /*string whatIsMyIp = "http://roadaddicts.site11.com/";
             Regex ipRegex = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
@@ -90,6 +91,13 @@ namespace RoadAddictsServer
             while (true)
             {
                 receiveMessage();
+                if (pingSent == false)
+                {
+                    pingSent = true;
+                    System.Threading.Thread.Sleep(100);
+                    watch = Stopwatch.StartNew();
+                    sendPing();
+                }
             }
         }
 
